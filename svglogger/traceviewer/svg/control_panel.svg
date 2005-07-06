@@ -1,0 +1,464 @@
+<svg viewBox='0 0 200 140' preserveAspectRatio='xMidyMid meet' zoomAndPan='disable' onload='onloadHandler(evt)' xmlns='http://www.w3.org/2000/svg'>
+	<description>
+        ###########################################################################
+        # COACH: Component Based Open Source Architecture for                     #
+        #        Distributed Telecom Applications                                 #
+        # See:   http://www.objectweb.org/                                        #
+        #                                                                         #
+        # Copyright (C) 2003 Lucent Technologies Nederland BV                     #
+        #                    Bell Labs Advanced Technologies - EMEA               #
+        #                                                                         #
+        # Initial developer(s): Wim Hellenthal                                    #
+        #                                                                         #
+        # This library is free software; you can redistribute it and/or           #
+        # modify it under the terms of the GNU Lesser General Public              #
+        # License as published by the Free Software Foundation; either            #
+        # version 2.1 of the License, or (at your option) any later version.      #
+        #                                                                         #
+        # This library is distributed in the hope that it will be useful,         #
+        # but WITHOUT ANY WARRANTY; without even the implied warranty of          #
+        # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU        #
+        # Lesser General Public License for more details.                         #
+        #                                                                         #
+        # You should have received a copy of the GNU Lesser General Public        #
+        # License along with this library; if not, write to the Free Software     #
+        # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA #
+        ###########################################################################
+	</description>
+	<script language='JavaScript' xlink:href='../jscript/ViewBox.js'></script>
+	<script type='text/javascript'><![CDATA[
+		var timer_id 	= null;
+		var interval 	= 500;
+		var vthumb	 	= null;
+		var vslider	 	= null;
+		var hthumb	 	= null;
+		var hslider	 	= null;
+		var move	 	= false;
+		var mousetrap	= null;
+		var viewBox		= null;
+
+		function onloadHandler (evt)
+		{
+			if ( parent.svg_init )
+				parent.svg_init(window);
+
+			viewBox = new ViewBox(svgDocument.documentElement);
+
+			vslider = document.getElementById ('vslider');
+			vthumb  = document.getElementById ('vthumb');
+			hslider = document.getElementById ('hslider');
+			hthumb  = document.getElementById ('hthumb');
+
+			vslider.addEventListener("click",     vclick, false);
+			vslider.addEventListener("mousedown", vmouseDown, false);
+			hslider.addEventListener("click",     hclick, false);
+			hslider.addEventListener("mousedown", hmouseDown, false);
+		}
+
+ 		/* getTransformToElement
+         *
+         * This function is a part of the SVG DOM, but currently it is not implemented in the Adobe SVG Viewer.
+         * This code recreates that functionality
+         */
+		function getTransformToElement(node)
+		{
+            /* Initialize our CTM the node's Current Transformation Matrix */
+
+            var CTM = node.getCTM();
+
+            /* Work our way through the ancestor nodes stopping at the SVG Document (accumulate all transformations for the node) */
+
+              while ( ( node = node.parentNode ) != svgDocument )
+              {
+                /* Multiply the new CTM to the one with what we've accumulated so far */
+
+                 CTM = node.getCTM().multiply(CTM);
+            }
+
+            return CTM;
+        }
+
+		function getUserCoordinates (evt, slider)
+		{
+            var trans = document.rootElement.getCurrentTranslate();
+            var scale = document.rootElement.getCurrentScale();
+			var CTM  	= getTransformToElement (slider);
+            var m    	= viewBox.getTM();
+
+            m = m.scale( 1/scale );
+            m = m.translate(-trans.x, -trans.y);
+
+			var iCTM = CTM.inverse();
+
+			var p1 = document.rootElement.createSVGPoint();
+
+            p1.x = evt.clientX;
+            p1.y = evt.clientY;
+
+            p2 = p1.matrixTransform(m);
+            p3 = p2.matrixTransform(iCTM);
+
+			return p3;
+		}
+
+		function find_button (type)
+		{
+			switch (type)
+			{
+				case 'button north':
+					return document.getElementById ('north');
+				case 'button west':
+					return document.getElementById ('west');
+				case 'button east':
+					return document.getElementById ('east');
+				case 'button south':
+					return document.getElementById ('south');
+			}
+
+			return null;
+		}
+
+		function button_down(evt)
+		{
+			var type = evt.getTarget().getParentNode().getAttribute('id');
+
+			if (type == 'home')
+			{
+				var button = evt.getTarget().getParentNode();
+
+				button.childNodes().item(1).setAttribute ('style', 'fill: white');
+				button.childNodes().item(3).setAttribute ('style', 'fill: black');
+				button.childNodes().item(5).setAttribute ('style', 'fill: rgb(225,225,225)');
+			}
+			else if ( type == 'direction' )
+			{
+				type 		= evt.getTarget().getAttribute ('id');
+				var element = find_button (type);
+
+				if ( element )
+				{
+					var rc = element.getElementsByTagName('rect');
+
+					if ( rc.length > 0 )
+					{
+						rc.item(0).setAttribute ('style', 'fill: white');
+						rc.item(1).setAttribute ('style', 'fill: black');
+						rc.item(2).setAttribute ('style', 'fill: rgb(225,225,225)');
+					}
+				}
+			}
+
+			callback (type);
+		}
+
+		function button_up(evt)
+		{
+			if ( timer_id)
+			{
+				clearInterval (timer_id);
+
+				timer_id = null;
+			}
+
+			var type = evt.getTarget().getParentNode().getAttribute('id');
+
+			if (type == 'home')
+			{
+				var button = evt.getTarget().getParentNode();
+
+				button.childNodes().item(1).setAttribute ('style', 'fill: black');
+				button.childNodes().item(3).setAttribute ('style', 'fill: white');
+				button.childNodes().item(5).setAttribute ('style', 'fill: rgb(200,200,200)');
+			}
+			else if ( type == 'direction' )
+			{
+				type 		= evt.getTarget().getAttribute ('id')
+				var element = find_button (type);
+
+				if ( element )
+				{
+					var rc = element.getElementsByTagName('rect');
+
+					if ( rc.length > 0 )
+					{
+						rc.item(0).setAttribute ('style', 'fill: black');
+						rc.item(1).setAttribute ('style', 'fill: white');
+						rc.item(2).setAttribute ('style', 'fill: rgb(200,200,200)');
+					}
+				}
+			}
+		}
+
+		function callback(type)
+		{
+			switch (type)
+			{
+				case 'button north':
+		            if ( !parent.acquireLock() )
+		                break;
+
+					if (parent.north)
+						parent.north();
+					break;
+				case 'button south':
+		            if ( !parent.acquireLock() )
+		                break;
+
+					if (parent.south)
+						parent.south();
+					break;
+				case 'button west':
+					if (parent.west)
+					{
+						parent.west();
+
+						if ( !timer_id )
+							timer_id  = setInterval ("parent.west()", interval);
+					}
+					break;
+				case 'button east':
+					if (parent.east)
+					{
+						parent.east();
+
+						if ( !timer_id )
+							timer_id  = setInterval ("parent.east()", interval);
+					}
+					break;
+				case 'home':
+					if ( !parent.acquireLock() )
+		                break;
+
+					if (parent.home)
+						parent.home();
+					break;
+			}
+		}
+
+		function vmouseDown(evt)
+		{
+		   if ( !parent.acquireLock() )
+		        return;
+
+			mousetrap = document.createElement('rect');
+			mousetrap.setAttribute ('x', '-1000');
+			mousetrap.setAttribute ('y', '-1000')
+			mousetrap.setAttribute ('width', '2000');
+			mousetrap.setAttribute ('height', '2000')
+			mousetrap.setAttribute ('style', 'fill:none')
+			mousetrap.setAttribute ('pointer-events', 'all')
+
+			document.rootElement.appendChild (mousetrap);
+
+			mousetrap.addEventListener("mouseup",   vmouseUp, false);
+			mousetrap.addEventListener("mousemove", vmouseMove, false);
+		}
+
+		function vmouseUp(evt)
+		{
+			document.rootElement.removeChild (mousetrap);
+
+			var y 	= getUserCoordinates (evt, vslider).y - 6;
+			var py 	= 0;
+
+			if ( y < 2 )
+			{
+				y  = 2; py = 0;
+			}
+			else if ( y > 79 )
+			{
+				y  = 79; py = 1;
+			}
+			else
+				py = y / 79;
+
+			vthumb.setAttribute("transform", "translate(1," + y + ")");
+
+			if (parent.setVScrollOffset)
+				parent.setVScrollOffset(py);
+		}
+
+		function vmouseMove(evt)
+		{
+			var y 	= getUserCoordinates (evt, vslider).y - 6;
+
+			if (y < 2  ) y = 2
+			if (y > 79 ) y = 79;
+
+			vthumb.setAttribute("transform", "translate(1," + y + ")");
+		}
+
+		function vclick (evt)
+		{
+		   if ( !parent.acquireLock() )
+		        return;
+
+			var y = getUserCoordinates (evt, vslider).y - 6;
+
+			var py = 0;
+
+			if ( y < 2 )
+			{
+				py = 0; y = 2;
+			}
+			else if ( y > 79 )
+			{
+				py = 1; y = 79;
+			}
+			else
+				py = y / 79;
+
+			vthumb.setAttribute("transform", "translate(1," + y + ")");
+		}
+
+		function setVSlider (py)
+		{
+			var y = 2 + py * 79;
+
+			if ( y > 79 )
+				y = 79;
+
+			vthumb.setAttribute("transform", "translate(1," + y + ")");
+		}
+
+		function hmouseDown(evt)
+		{
+			mousetrap = document.createElement('rect');
+			mousetrap.setAttribute ('x', '-1000');
+			mousetrap.setAttribute ('y', '-1000')
+			mousetrap.setAttribute ('width', '2000');
+			mousetrap.setAttribute ('height', '2000')
+			mousetrap.setAttribute ('style', 'fill:none')
+			mousetrap.setAttribute ('pointer-events', 'all')
+
+			document.rootElement.appendChild (mousetrap);
+
+			mousetrap.addEventListener("mouseup",   hmouseUp, false);
+			mousetrap.addEventListener("mousemove", hmouseMove, false);
+		}
+
+		function hmouseUp(evt)
+		{
+			document.rootElement.removeChild (mousetrap);
+
+			var x = getUserCoordinates (evt, hslider).x - 6;
+			var px=0;
+
+			if ( x < 2 )
+			{
+				px = 0;
+				x  = 2;
+			}
+			else if ( x > 79 )
+			{
+				x  = 79;
+				px = 1;
+			}
+			else
+				px = x / 79;
+
+			hthumb.setAttribute("transform", "translate(" + x + ",1)");
+
+			if (parent.setHScrollOffset)
+				parent.setHScrollOffset(px);
+		}
+
+		function hmouseMove(evt)
+		{
+			var x = getUserCoordinates (evt, hslider).x - 6;
+
+			if (x < 2  ) x = 2
+			if (x > 79 ) x = 79;
+
+			hthumb.setAttribute("transform", "translate(" + x + ",1)");
+		}
+
+		function hclick (evt)
+		{
+			var x  = getUserCoordinates (evt, hslider).x - 6;
+			var px = 0;
+
+			if ( x < 2 )
+			{
+				px = 0; x = 2;
+			}
+			else if ( x > 79 )
+			{
+				px = 1; x = 79;
+			}
+			else
+				px = x / 79;
+
+			hthumb.setAttribute("transform", "translate(" + x + ",1)");
+		}
+
+		function setHSlider (px)
+		{
+			var x = 2 + px * 79;
+
+			if ( x > 79 )
+				x = 79;
+
+			hthumb.setAttribute("transform", "translate(" + x + ",1)");
+		}
+	]]></script>
+	<defs>
+		<g id='north'>
+			<rect x='1'  y='1'  rx='3' ry='3' width='30' height='30' style='fill: black' pointer-events='none'/>
+			<rect x='-1' y='-1' rx='3' ry='3' width='30' height='30' style='fill: white' pointer-events='none'/>
+			<rect x='0'  y='0'  rx='3' ry='3' width='30' height='30' style='fill: rgb(200,200,200)'/>
+			<path style="fill:black;" d="M 16,5 l -10 20 h 20 z"/>
+		</g>
+		<g id='south'>
+			<rect x='1'  y='1'  rx='3' ry='3' width='30' height='30' style='fill: black' pointer-events='none'/>
+			<rect x='-1' y='-1' rx='3' ry='3' width='30' height='30' style='fill: white' pointer-events='none'/>
+			<rect x='0'  y='0'  rx='3' ry='3' width='30' height='30' style='fill: rgb(200,200,200)'/>
+			<path style="fill:black;" d="M 16,25 l -10 -20 h 20 z"/>
+		</g>
+		<g id='west'>
+			<rect x='1'  y='1'  rx='3' ry='3' width='30' height='30' style='fill: black' pointer-events='none'/>
+			<rect x='-1' y='-1' rx='3' ry='3' width='30' height='30' style='fill: white' pointer-events='none'/>
+			<rect x='0'  y='0'  rx='3' ry='3' width='30' height='30' style='fill: rgb(200,200,200)'/>
+			<path style="fill:black;" d="M 5,15 l 20 -10 v 20 z"/>
+		</g>
+		<g id='east'>
+			<rect x='1'  y='1'  rx='3' ry='3' width='30' height='30' style='fill: black' pointer-events='none'/>
+			<rect x='-1' y='-1' rx='3' ry='3' width='30' height='30' style='fill: white' pointer-events='none'/>
+			<rect x='0'  y='0'  rx='3' ry='3' width='30' height='30' style='fill: rgb(200,200,200)'/>
+			<path style="fill:black;" d="M 26,15 l -20 -10 v 20z"/>
+		</g>
+	</defs>
+	<g id='direction' onmousedown='button_down(evt)' onmouseup='button_up(evt)' onmouseout='button_up(evt)'>
+		<rect x='-500' y='-500' id="background" width="1000" height="1000" style='fill:#EAEAEA' pointer-events='none'/>
+		<use id='button north' x='34' y='2'  xlink:href='#north'/>
+		<use id='button west'  x='2'  y='34' xlink:href='#west' />
+		<use id='button east'  x='67' y='34' xlink:href='#east' />
+		<use id='button south' x='34' y='67' xlink:href='#south'/>
+	</g>
+	<g id='home' onmousedown='button_down(evt)' onmouseup='button_up(evt)' onmouseout='button_up(evt)'>
+		<rect x='105'  y='35'  rx='3' ry='3' width='60' height='30' style='fill: black' pointer-events='none'/>
+		<rect x='103'  y='33'  rx='3' ry='3' width='60' height='30' style='fill: white' pointer-events='none'/>
+		<rect x='104'  y='34'  rx='3' ry='3' width='60' height='30' style='fill: rgb(200,200,200)'/>
+		<text id="label" x="135" y="55" font-size="15" style='text-anchor:middle;' pointer-events="none">HOME</text>
+	</g>
+	<g id='vslider' transform='translate(185,4)'>
+		<rect x='1'  y='1'  width='15' height='94' style='fill:white'/>
+		<rect x='-1' y='-1' width='15' height='94' style='fill:black'/>
+		<rect x='0'  y='0'  width='15' height='94' style='fill:#DADADA'/>
+		<g id='vthumb' transform='translate(1,2)'>
+			<rect x='1'  y='1'  width='12' height='12' style='fill:black'/>
+			<rect x='-1' y='-1' width='12' height='12' style='fill:white'/>
+			<rect x='0'  y='0'  width='12' height='12' style='fill:rgb(200,200,200)'/>
+		</g>
+	</g>
+	<g id='hslider' transform='translate(0,115)' >
+		<rect x='1'  y='1'  width='94' height='15' style='fill:white'/>
+		<rect x='-1' y='-1' width='94' height='15' style='fill:black'/>
+		<rect x='0'  y='0'  width='94' height='15' style='fill:#DADADA'/>
+		<g id='hthumb' transform='translate(2,1)'>
+			<rect x='1'  y='1'  width='12' height='12' style='fill:black'/>
+			<rect x='-1' y='-1' width='12' height='12' style='fill:white'/>
+			<rect x='0'  y='0'  width='12' height='12' style='fill:rgb(200,200,200)'/>
+		</g>
+	</g>
+</svg>

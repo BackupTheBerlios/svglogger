@@ -1,0 +1,238 @@
+<html>
+  <head>
+		<title>Trace Viewer README File</title>
+  </head>
+<body>
+	<font size=2>
+		<h2>Table of Content</h2>
+		<p><ul>
+			<li><a href='#general'>General</a></li>
+			<li><a href='#installation'>Installation</a></li>
+			<li><a href='#running'>Running the Applications</a></li>
+			<li><a href='#guide'>Viewer Users Guide</a></li>
+			<ul>
+				<li><a href='#pc'>Page Control</a></li>
+				<li><a href='#ec'>Entity Control</a></li>
+				<li><a href='#oc'>Operation Control</a></li>
+				<li><a href='#ep'>Event Parameter Panel</a></li>
+				<li><a href='#cm'>Context Menus</a></li>
+				<ul>
+					<li><a href='#dcm'>Default Context Menu</a></li>
+					<li><a href='#ecm'>Event Context Menu</a></li>
+					<li><a href='#ocm'>Operation Context Menu</a></li>
+		 		</ul>
+			</ul>
+		</ul></p>
+		<h2><a name='general'></a> General </h2>
+		<p>
+			The trace viewer combined with the trace server, part of the openccm module, represents  a
+			web enabled test environment that can be used to visualize execution traces between CORBA objects
+			within a CCM context. The application is designed as part of the
+			<a href="http://coach.objectweb.org/">COACH IST project</a>. The next figure shows a simplified schematic of
+			the architecture:
+		</p>
+		<p>
+			<img src='fig1.jpg'>
+ 		</p>
+ 		<p>More information about the test environment can be found in COACH deliverable D2.7
+ 		<a href=http://coach.objectweb.org/results/COACH-D2.7.zip>Specification of the component test environment</a>
+		<p>The trace viewer is designed and tested on the following platform:</p>
+		<ul>
+			<li>Windows 2000 machine, service pack 4</li>
+			<li>Microsoft Internet Explorer version 6.0</li>
+			<li>Apache Web Server version 2.0.44 extended with FastCGI module version 2.4.0</li>
+		</ul>
+		<h2><a name='installation'></a> Installation </h2>
+		<p>
+		There are two configuration files that need to be modified in order for the trace viewer to work. The first one is
+		the fcgi.conf file that can be found in the trace viewer /conf subdirectory. The second one is the
+		httpd.conf file which is part of the Apache installation. The latter can be found in the Apache /conf subdirectory.
+		</p>
+		<p>
+		<ol>
+			<li><p><b>fcgi.conf file - </b> The trace viewer will be part of a web server and communicates
+				   with the trace server using FCGI (persistent version of CGI). The fcgi.conf file is needed for the
+				   web server to load the FCGI module, to be able to connect to the trace server, and to find
+				   the trace viewer web files. The file <b>must</b> be modified to point to the location where the trace viewer
+				   files are installed. It also specifies where the trace server is running (hostname and port).</p>
+			       <p>Note: The fcgi module library can be found in the trace viewer /lib subdirectory. It is
+			       a pre-build version for Apache running on a WIN32 machine. If you want to run the Apache server
+			       on a machine with a different operating system then you need to build the library yourself. The source
+			       code and documentation can be found on the <a href="http://fastcgi.com">fcgi home page</a>.</p></li>
+			<li><p><b>httpd.conf file - </b> The Apache web server must load the fcgi.conf file so it needs to be included
+				   at the end of the httpd.conf file which can be found in the Apache /conf subdirectory. This is how the
+				   include should look like:</p>
+				   <p><b>Include "&ltabsolute trace viewer path&gt/conf/fcgi.conf"</b></p></li>
+		</ol>
+		</p>
+		<p>
+		To test the trace viewer you need to build and install the OpenCCM environment including the COACH test
+		applications (trace server/service). There is a separate target <b>build coach</b> that will build the
+		OpenCCM code and the COACH software.</p></li>
+		</p>
+		<h2><a name='running'></a> Running the Applications </h2>
+		<p>
+		<ol>
+			<li><p><b>Apache - </b>After the configuration files are correctly modified you should be able to (re)start
+			the web server. </p></li>
+			<li><p><b>Browser - </b>The next step is to start the web browser (IExplorer 5.5+) and type in the URL
+			pointing to the trace viewer <pre>http://&lthostname&gt[:port]/coach/tracing</pre> In case your machine does not
+			have an installed Adobe SVG ActiveX control (version 3.0), you will be redirected to the Adobe SVG install
+			page. Now you should install the SVG plugin on your machine. After the plugin is installed you will see the
+			trace viewer HTML page which has 5 page control buttons and two sliders on the left side. When you see these,
+			you know the viewer is loaded correctly. You also get an alert message that the viewer can not find the
+			trace server. This is ok since the server is not started yet.</p></li>
+			<li><p><b>OpenCCM - </b> After you have build and installed the OpenCCM platform you should be able to start
+			the trace server using the command 'coach_tracing_start'. The server is now ready to collect operation events. To
+			test the trace server together with the trace viewer you could run the test program 'coach_tracing_test'. This
+			program simulates a number of operation between CORBA components that can be monitored by the trace viewer.
+			The result should look like follows:</p>
+			<p>
+				<img src='fig2.jpg'>
+			</p></ol>
+		<h2><a name='guide'></a> Viewer Users Guide </h2>
+		<p>
+			The next figure shows a real life example that will be used to explain the trace viewer features. It shows the
+			execution traces of a simple client/server application. The client sends request to the server from
+			two different threads. This is the reason why the operation lines can cross each other,
+			there is no causual relationship between the operations originating the two different threads. This complicates
+			the interpretation of the results. Later on we will see how to change the graphical presentation to
+			identify the two different threads, of which the operations both represent a sequence of causally related events
+			(trail), more easily.
+		</p>
+		<p>
+			<img src='fig3.jpg'>
+ 		</p>
+ 		<p>
+ 			<ol>
+ 				<li>
+ 				<h3><a name='pc'></a> Page Control </h3>
+ 				<p>
+ 					The page control panel allows the user to change the view in the horizontal as well as the vertical
+ 					direction. In the vertical direction this means that the viewer will send a request to the trace
+ 					server to retrieve a different portion of the operation events stored within the server database. The
+ 					vertical step size, applicable to the North/South buttons, can be modified.
+ 					It is defined as a percentage of the maximum number of (vertical direction) events that fit within
+ 					the visible region of the view panel window.
+ 				</p></li>
+ 				<li>
+ 				<h3><a name='ec'></a> Entity Control </h3>
+ 				<p>
+ 					The entity control panel shows the relationship between the entities by means of a tree view and allows the
+ 					user to manage the graphical representation of those entities. Within the CCM environment this relationship
+ 					is as follows:
+ 					<ol>
+ 						<p>
+ 							<b>node::process::container::component::object</b>
+ 						</p>
+ 					</ol>
+					The user can choose which level in the hierarchy will be visible by collapsing or expanding tree nodes.
+					The next figure shows an example where the tree is collapsed to show the client/server invocations
+					at the container level.
+					<p>
+						<img src='fig4.jpg'>
+ 					</p>
+ 					It is also possible to control the visibility of the entities by clicking with the mouse on the text of a tree
+ 					node. Hidden nodes show up in red. The next figure shows an example where the 'StructHandler' component of the
+ 					client is hidden. As you can see this will also hide the corresponding invocations.
+ 					<p>
+						<img src='fig5.jpg'>
+ 					</p>
+ 				</p></li>
+ 				<li>
+ 				<h3><a name='oc'></a> Operation Control </h3>
+ 				<p>
+ 					The operation control panel is opened by clicking with the left mouse button on the name of an operation. The
+ 					panel functionality is threefold. It allows the user to filter out operation types, filter out
+ 					operation to self, and filter out unmatched events. Operations to self are operations that have there start
+ 					and endpoint positioned on the same time line. Unmatched events are events that have no peer event. Normally
+ 					every operation has a start and endpoint represented by two related events. The next two figures show an
+ 					example how to hide all the 'get_struct' operations
+  					<p>
+						<img src='fig6.jpg'>
+ 					</p>
+ 					<p>
+						<img src='fig7.jpg'>
+ 					</p>
+ 					The return to the Entity Control panel you should position the mouse on one of the timelines and click the left
+ 					mouse button.
+ 				<p></li>
+ 				<li>
+ 				<h3><a name='ep'></a> Event Parameter Panel </h3>
+ 				<p>
+ 					By positioning the mouse over an event and clicking the left mouse button you can activate the event
+ 					panel showing the operation parameters for that specific event. The next figure shows an example of
+ 					the 'get_struct' operation reply parameters. Note that this feature only works for C++ applications.
+ 					The Portable Interceptor concept for Java does not support the retrieval of parameter values. <b>For
+ 					Java applications the parameter tree will be empty.</b>
+  					<p>
+						<img src='fig8.jpg'>
+ 					</p>
+ 				</p></li>
+  				<li>
+ 				<h3><a name='cm'></a> Context Menus </h3>
+ 				<p>
+	 				By moving the mouse over a certain area of the view panel window and clicking the right mouse button you will
+	 				activate one of the following three context menus.
+	 				<p><ol>
+	 					<li><p>
+		 					<h4><a name='dcm'></a>Default Context Menu</h4>
+		 					<p>
+		 						The default context menu is the Adobe plugin menu that gives you for example the
+		 						possibility to Zoom In or to Zoom Out. The next two figures show you what happens after
+		 						a Zoom Out action. Note that the size of the tooltip panel remains unchanged so that
+		 						you can still identify certain event or entity properties.
+		 					</p>
+		 					<p>
+								<img src='fig9.jpg'>
+ 							</p>
+		  					<p>
+								<img src='fig10.jpg'>
+		 					</p>
+		 				</p></li>
+		 				<li><p>
+		 					<h4><a name='ecm'></a>Event Context Menu</h4>
+		 					<p>
+		 						When you position the mouse over an event and click the right mouse button you can popup
+		 						the Event Context Menu. This menu is used to filter out all events from the top down to
+		 						the place where you activated the menu.
+		 						This is very useful when the server database contains numerous (e.g. 20000) events
+		 						and you no longer are interested in showing all events prior to the event on which you
+		 						activated the context menu. The next two figures show what happens when you hide previous
+		 						events. Note that the behavior is as if the events are thrown away at the server side.
+		 						This is not the case, you can always retrieve them as you can see by looking at the
+		 						second context menu item.
+		 					</p>
+		 					<p>
+								<img src='fig11.jpg'>
+		 					</p>
+		 					<p>
+								<img src='fig12.jpg'>
+		 					</p>
+		 				</p></li>
+		 				<li><p>
+		 					<h4><a name='ocm'></a>Operation Context Menu</h4>
+		 					<p>
+		 						As already mentioned within the <a href='#guide'>Viewer Users Guide</a> introduction, the
+		 						operation lines can cross each other when they are not causally related.
+		 						This means they also have a different trail id (sequence of causally related events).
+		 						We can use this trail id feature to give every trail a different color which simplifies
+		 						the interpretation of the results. The next two figures show how to color a trail. The
+		 						context menu is activated when moving the mouse over an operation line and clicking the
+		 						right mouse button.
+							</p>
+		 					</p>
+		  					<p>
+								<img src='fig13.jpg'>
+		 					</p>
+		   					<p>
+								<img src='fig14.jpg'>
+		 					</p>
+		 				</p></li>
+	 				</ol></p>
+ 				</p></li>
+ 			</ol>
+		</p>
+    </font>
+</body>
+</html>

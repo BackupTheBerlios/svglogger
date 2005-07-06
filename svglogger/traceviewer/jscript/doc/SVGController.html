@@ -1,0 +1,2115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+SVGController
+</TITLE>
+<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
+</HEAD>
+<SCRIPT>
+function asd()
+{
+parent.document.title="SVGController";
+}
+</SCRIPT>
+<BODY BGCOLOR="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=3 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <!-- 
+  This is navbar functionality that is not yet handled
+ --> 
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"></TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <!--A HREF="overview-tree.html"--><FONT CLASS="NavBarFont1">Tree</FONT><!--/A-->&nbsp;</TD>
+  <!--TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"-->    <!--A HREF="deprecated-list.html"--><!--FONT CLASS="NavBarFont1">Deprecated</FONT--><!--/A--><!--&nbsp;</TD-->
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-all.html"--><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="Hashtable.html"><B>PREV CLASS</B></A><!-- 
+   NEXT CLASS 
+-->
+&nbsp;<A HREF="StringBuffer.html"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="index.html" TARGET="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SVGController.html" TARGET="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;
+<SCRIPT>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>
+</NOSCRIPT>
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<!-- =========== END OF NAVBAR =========== -->
+<HR>
+
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>Class SVGController</H2>
+<PRE>Object
+   |
+   +--<b>SVGController</b>
+</PRE>
+
+
+<HR>
+<DL>
+   <!-- Class definition -->
+   <DT>class 
+   <B>SVGController</B>
+   
+
+</DL>
+   <P>
+   
+   This class is the 'engine' of the tracing viewer and is responsible for processing user interaction request,
+retrieving information from the tracing server, and building up the SVG document needed for the graphical
+representation of the invocation traces.
+   <P>
+   <P>
+   <HR>
+
+   <P>
+
+<!-- =========== FIELD SUMMARY =========== -->
+
+   <A NAME="field_summary"><!-- --></A>
+      <TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+         <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+            <TD COLSPAN=2><FONT SIZE="+2">
+               <B>Field Summary</B></FONT></TD>
+         </TR>
+
+   <!-- This is one instance field summary -->
+   
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+   <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+   <CODE>&lt;static&gt; &nbsp;var</CODE></FONT></TD>
+   <TD><CODE><B><A HREF="#X_SPACE">X_SPACE</A></B></CODE>
+   <BR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+   </TR>
+   
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+   <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+   <CODE>&lt;static&gt; &nbsp;var</CODE></FONT></TD>
+   <TD><CODE><B><A HREF="#Y_SPACE">Y_SPACE</A></B></CODE>
+   <BR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+   </TR>
+   
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+   <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+   <CODE>&lt;static&gt; &nbsp;var</CODE></FONT></TD>
+   <TD><CODE><B><A HREF="#identityKind">identityKind</A></B></CODE>
+   <BR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+   </TR>
+   
+
+   </TABLE>
+   &nbsp;
+   
+
+   
+
+<!-- =========== END FIELD SUMMARY =========== -->
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TD COLSPAN=2><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+   <TD>
+      <CODE>
+	 <B>
+	    <A HREF="SVGController.html#SVGController()">SVGController</A> 
+	 </B>
+	 ()
+      </CODE>
+      <BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+<!-- ======== END CONSTRUCTOR SUMMARY ======== -->
+
+&nbsp;
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TD COLSPAN=2><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TD>
+</TR>
+
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#acquireLock">acquireLock</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Used to prevent user interactions while busy
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#addTooltipText">addTooltipText</A></B>(v1, v2)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Sets the tooltip text for an event or entity when hoovering with the mouse above the graphical representation.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#clearTooltipText">clearTooltipText</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Clears the tooltip text
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#clearTrailColor">clearTrailColor</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called when the user acts on the operation context menu to restore the default trail color.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#clear_mouse_ctx">clear_mouse_ctx</A></B>(evt)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Restores the default behaviour previously changed by the <a href='#set_mouse_ctx'>set_mouse_ctx</a> routine.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#collapseExpand">collapseExpand</A></B>(id, action)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the entity/identity tree when the user modifies the tree view to collapse or expand a
+tree fragment.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#createTooltipPanel">createTooltipPanel</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#east">east</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user clicks the page control 'east' button.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#getEntities">getEntities</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#getEventCount">getEventCount</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#getEvents">getEvents</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#hide">hide</A></B>(node, children)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the entity/identity tree when the user modifies the tree view to hide a
+tree fragment.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#hideEvents">hideEvents</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called when the user acts on the event context menu to hide events from the top to
+the current event position.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#hideOperation">hideOperation</A></B>(menu)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the control_tabs HTML page when the user operates on the 'Filter Out Operation:' menu.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#hideTooltip">hideTooltip</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 called by the <a href='#clear_mouse_ctx'>clear_mouse_ctx</a> routine when the user is hoovering with the mouse from the
+graphical representation of an event or entity/identity.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#home">home</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user clicks the page control 'home' button.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#html_init">html_init</A></B>(panel, cookies, ctrl_panel_doc)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 This routine is called by the index HTML page javascript code after all documents, SVG as well as HTML are loaded.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#init">init</A></B>(server, entity_tree, event_tree, caption, tabs_doc)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 This routine is called by the control_tabs.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#north">north</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user clicks the page control 'north' button.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#operationComplete">operationComplete</A></B>(status)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#option1">option1</A></B>(checkbox)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the control_tabs HTML page when the user operates on the 'operation to self' checkbox.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#option2">option2</A></B>(checkbox)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the control_tabs HTML page when the user operates on the 'Hide unmatched events' checkbox.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#refresh">refresh</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 This routine (re)calculates the position of the events on the view panel window and calls the
+<a href='#updateSVGDocument'>updateSVGDocument</a> routine to update the SVG document.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#restore_default_menu">restore_default_menu</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Restores the default (Adobe) context menu
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#serverRequest">serverRequest</A></B>(value)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#setHScrollOffset">setHScrollOffset</A></B>(px)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user acts on the page control horizontal slider.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#setTooltipSize">setTooltipSize</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Modifies the size of the tooltip panel so that text set by the <a href='#addTooltipText'>addTooltipText</a> routine will fit.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#setTrailColor">setTrailColor</A></B>(color)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called when the user acts on the operation context menu to color a trail.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#setVScrollOffset">setVScrollOffset</A></B>(py)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user acts on the page control vertical slider.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#set_color_menu">set_color_menu</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Replaced the default (Adobe) context menu with the color menu used to color an invocation trail.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#set_event_menu">set_event_menu</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Replaced the default (Adobe) context menu with the event menu.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#set_mouse_ctx">set_mouse_ctx</A></B>(evt)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 When the user moves the mouse over the graphical representation of an invocation, event, or entity/identity
+the corresponding SVG element will fire an 'onmouseover' event that is captured using this routine.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#set_step_size">set_step_size</A></B>(p)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Routine is used to set the page control step size.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#show">show</A></B>(node, children)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the entity/identity tree when the user modifies the tree view to visualize a
+tree fragment.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#showEventTree">showEventTree</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#showEvents">showEvents</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called when the user acts on the event context menu to restore the default view
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#showOperation">showOperation</A></B>(menu)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Callback routine called from the control_tabs HTML page when the user operates on the 'Remove Operation Filter:' menu.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#showTooltip">showTooltip</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 called by the <a href='#set_mouse_ctx'>set_mouse_ctx</a> routine when the user is hoovering with the mouse over a
+graphical representation of an event or entity/identity.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#south">south</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user clicks the page control 'south' button.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#timer">timer</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 500 ms timer used to update the status line when retrieving information from the server.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#toggleControlView">toggleControlView</A></B>(evt)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 When the user clicks with the mouse on the graphical representation of an invocation, event, or entity/identity
+the corresponding SVG element will fire an 'onclick' event that is captured using this routine.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#updateControlView">updateControlView</A></B>(id, tooltip, img, value)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 This routine is called by the <a href='#operationComplete'>operationComplete</a> routine to update the entity/identity
+hierarchy tree after retrieving entities from the server.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#updateFilterMenus">updateFilterMenus</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#updateSVGDocument">updateSVGDocument</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Updates the SVG document to reflect all the changes.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#updateStatus">updateStatus</A></B>(window, id)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user hoovers with the mouse over the text of an entity/identity tree node.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#west">west</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Called when the user clicks the page control 'west' button.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&lt;static&gt;&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#scroll">scroll</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Static event listener (Adobe SVGScroll events) callback routine that handles panning events the user can issue by
+holding the alt key and clicking and dragging with the mouse.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&lt;static&gt;&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#yposIndexOrder">yposIndexOrder</A></B>(a,b)
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Order function used by the visible events array to sort events with the yposIndex parameter as sort criteria.
+      </TD>
+   </TR>
+
+   <TR BGCOLOR="white" CLASS="TableRowColor">
+      <TD ALIGN="right" VALIGN="top" WIDTH="1%">
+	 <FONT SIZE="-1">
+	    <CODE>&lt;static&gt;&nbsp;function</CODE>
+	 </FONT>
+      </TD>
+      <TD>
+	 <CODE>
+	    <B>
+	       <A HREF="#zoom">zoom</A></B>()
+	 </CODE>
+	 <BR>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 Static event listener (Adobe SVGZoom events) callback routine that handles zoom in/out events the user can issue
+using the default Adobe context menu.
+      </TD>
+   </TR>
+
+
+</TABLE>
+
+
+
+<P>
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TD COLSPAN=1><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TD>
+</TR>
+</TABLE>
+
+
+<A NAME="X_SPACE"><!-- --></A><H3>
+X_SPACE</H3>
+<PRE>
+&lt;static&gt; var <B>X_SPACE</B></PRE>
+<DL>
+<DL>
+
+</DL>
+</DL>
+<HR>
+
+<A NAME="Y_SPACE"><!-- --></A><H3>
+Y_SPACE</H3>
+<PRE>
+&lt;static&gt; var <B>Y_SPACE</B></PRE>
+<DL>
+<DL>
+
+</DL>
+</DL>
+<HR>
+
+<A NAME="identityKind"><!-- --></A><H3>
+identityKind</H3>
+<PRE>
+&lt;static&gt; var <B>identityKind</B></PRE>
+<DL>
+<DL>
+
+</DL>
+</DL>
+<HR>
+
+
+
+<!-- ============ END FIELD DETAIL =========== -->
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TD COLSPAN=1><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TD>
+</TR>
+</TABLE>
+
+<A NAME="SVGController()"><!-- --></A><H3>
+SVGController</H3>
+<PRE>
+function <B>SVGController</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+</DL></DL>
+<!-- ========= END CONSTRUCTOR DETAIL ======== -->
+
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TD>
+</TR>
+</TABLE>
+
+
+<!-- One single method detail entry -->
+
+<A NAME="acquireLock"><!-- --></A><H3>
+acquireLock</H3>
+<PRE>
+function <B>acquireLock</B>()</PRE>
+<DL>
+<DD>Used to prevent user interactions while busy
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="addTooltipText"><!-- --></A><H3>
+addTooltipText</H3>
+<PRE>
+function <B>addTooltipText</B>(v1, v2)</PRE>
+<DL>
+<DD>Sets the tooltip text for an event or entity when hoovering with the mouse above the graphical representation.
+This function is called by the <a href='#showTooltip'>showTooltip</a> routine.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>v1</CODE> - Discriminator to identify the element type - event or entity.
+     <p>
+   
+     <DD><CODE>v2</CODE> - Element Id.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="clearTooltipText"><!-- --></A><H3>
+clearTooltipText</H3>
+<PRE>
+function <B>clearTooltipText</B>()</PRE>
+<DL>
+<DD>Clears the tooltip text
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="clearTrailColor"><!-- --></A><H3>
+clearTrailColor</H3>
+<PRE>
+function <B>clearTrailColor</B>()</PRE>
+<DL>
+<DD>Callback routine called when the user acts on the operation context menu to restore the default trail color.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="clear_mouse_ctx"><!-- --></A><H3>
+clear_mouse_ctx</H3>
+<PRE>
+function <B>clear_mouse_ctx</B>(evt)</PRE>
+<DL>
+<DD>Restores the default behaviour previously changed by the <a href='#set_mouse_ctx'>set_mouse_ctx</a> routine.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="collapseExpand"><!-- --></A><H3>
+collapseExpand</H3>
+<PRE>
+function <B>collapseExpand</B>(id, action)</PRE>
+<DL>
+<DD>Callback routine called from the entity/identity tree when the user modifies the tree view to collapse or expand a
+tree fragment.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>id</CODE> - Branch id of the tree node the user operates upon.
+     <p>
+   
+     <DD><CODE>action</CODE> - Flag indication if the specified tree node is being collapsed or expanded.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="createTooltipPanel"><!-- --></A><H3>
+createTooltipPanel</H3>
+<PRE>
+function <B>createTooltipPanel</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="east"><!-- --></A><H3>
+east</H3>
+<PRE>
+function <B>east</B>()</PRE>
+<DL>
+<DD>Called when the user clicks the page control 'east' button.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="getEntities"><!-- --></A><H3>
+getEntities</H3>
+<PRE>
+function <B>getEntities</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="getEventCount"><!-- --></A><H3>
+getEventCount</H3>
+<PRE>
+function <B>getEventCount</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="getEvents"><!-- --></A><H3>
+getEvents</H3>
+<PRE>
+function <B>getEvents</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="hide"><!-- --></A><H3>
+hide</H3>
+<PRE>
+function <B>hide</B>(node, children)</PRE>
+<DL>
+<DD>Callback routine called from the entity/identity tree when the user modifies the tree view to hide a
+tree fragment.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>children</CODE> - All children underneath the specified node for which the visual flag must be set to false as well.
+     <p>
+   
+     <DD><CODE>node</CODE> - Branch id of the tree node the user operates upon.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="hideEvents"><!-- --></A><H3>
+hideEvents</H3>
+<PRE>
+function <B>hideEvents</B>()</PRE>
+<DL>
+<DD>Callback routine called when the user acts on the event context menu to hide events from the top to
+the current event position.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="hideOperation"><!-- --></A><H3>
+hideOperation</H3>
+<PRE>
+function <B>hideOperation</B>(menu)</PRE>
+<DL>
+<DD>Callback routine called from the control_tabs HTML page when the user operates on the 'Filter Out Operation:' menu.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>menu</CODE> - Menu element.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="hideTooltip"><!-- --></A><H3>
+hideTooltip</H3>
+<PRE>
+function <B>hideTooltip</B>()</PRE>
+<DL>
+<DD>called by the <a href='#clear_mouse_ctx'>clear_mouse_ctx</a> routine when the user is hoovering with the mouse from the
+graphical representation of an event or entity/identity.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="home"><!-- --></A><H3>
+home</H3>
+<PRE>
+function <B>home</B>()</PRE>
+<DL>
+<DD>Called when the user clicks the page control 'home' button.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="html_init"><!-- --></A><H3>
+html_init</H3>
+<PRE>
+function <B>html_init</B>(panel, cookies, ctrl_panel_doc)</PRE>
+<DL>
+<DD>This routine is called by the index HTML page javascript code after all documents, SVG as well as HTML are loaded.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>ctrl_panel_doc</CODE> - HTML control_panel document.
+     <p>
+   
+     <DD><CODE>panel</CODE> - SVG page control document.
+     <p>
+   
+     <DD><CODE>cookies</CODE> - Setting stored during the previous session.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="init"><!-- --></A><H3>
+init</H3>
+<PRE>
+function <B>init</B>(server, entity_tree, event_tree, caption, tabs_doc)</PRE>
+<DL>
+<DD>This routine is called by the control_tabs.html javascript code after the index.html onload handler detected that all
+the documents are loaded. Not only the SVG document but also all the HTML documents. The reason that this routine
+is not called by the index.html javascript code is that we need the instances of the entity/identity hierarchy tree
+and event parameter tree. Both trees are part of the control_tabs HTML document.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>caption</CODE> - HTML control panel caption element
+     <p>
+   
+     <DD><CODE>event_tree</CODE> - Event parameter tree.
+     <p>
+   
+     <DD><CODE>tabs_doc</CODE> - HTML control_tabs document
+     <p>
+   
+     <DD><CODE>server</CODE> - URL needed to place request to the tracing server.
+     <p>
+   
+     <DD><CODE>entity_tree</CODE> - Entity/Identity hierarchy tree.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="north"><!-- --></A><H3>
+north</H3>
+<PRE>
+function <B>north</B>()</PRE>
+<DL>
+<DD>Called when the user clicks the page control 'north' button.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="operationComplete"><!-- --></A><H3>
+operationComplete</H3>
+<PRE>
+function <B>operationComplete</B>(status)</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="option1"><!-- --></A><H3>
+option1</H3>
+<PRE>
+function <B>option1</B>(checkbox)</PRE>
+<DL>
+<DD>Callback routine called from the control_tabs HTML page when the user operates on the 'operation to self' checkbox.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>checkbox</CODE> - Checkbox element.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="option2"><!-- --></A><H3>
+option2</H3>
+<PRE>
+function <B>option2</B>(checkbox)</PRE>
+<DL>
+<DD>Callback routine called from the control_tabs HTML page when the user operates on the 'Hide unmatched events' checkbox.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>checkbox</CODE> - Checkbox element.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="refresh"><!-- --></A><H3>
+refresh</H3>
+<PRE>
+function <B>refresh</B>()</PRE>
+<DL>
+<DD>This routine (re)calculates the position of the events on the view panel window and calls the
+<a href='#updateSVGDocument'>updateSVGDocument</a> routine to update the SVG document.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="restore_default_menu"><!-- --></A><H3>
+restore_default_menu</H3>
+<PRE>
+function <B>restore_default_menu</B>()</PRE>
+<DL>
+<DD>Restores the default (Adobe) context menu
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="serverRequest"><!-- --></A><H3>
+serverRequest</H3>
+<PRE>
+function <B>serverRequest</B>(value)</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="setHScrollOffset"><!-- --></A><H3>
+setHScrollOffset</H3>
+<PRE>
+function <B>setHScrollOffset</B>(px)</PRE>
+<DL>
+<DD>Called when the user acts on the page control horizontal slider.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="setTooltipSize"><!-- --></A><H3>
+setTooltipSize</H3>
+<PRE>
+function <B>setTooltipSize</B>()</PRE>
+<DL>
+<DD>Modifies the size of the tooltip panel so that text set by the <a href='#addTooltipText'>addTooltipText</a> routine will fit.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="setTrailColor"><!-- --></A><H3>
+setTrailColor</H3>
+<PRE>
+function <B>setTrailColor</B>(color)</PRE>
+<DL>
+<DD>Callback routine called when the user acts on the operation context menu to color a trail.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>color</CODE> - Color to set for the selected trail.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="setVScrollOffset"><!-- --></A><H3>
+setVScrollOffset</H3>
+<PRE>
+function <B>setVScrollOffset</B>(py)</PRE>
+<DL>
+<DD>Called when the user acts on the page control vertical slider.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="set_color_menu"><!-- --></A><H3>
+set_color_menu</H3>
+<PRE>
+function <B>set_color_menu</B>()</PRE>
+<DL>
+<DD>Replaced the default (Adobe) context menu with the color menu used to color an invocation trail.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="set_event_menu"><!-- --></A><H3>
+set_event_menu</H3>
+<PRE>
+function <B>set_event_menu</B>()</PRE>
+<DL>
+<DD>Replaced the default (Adobe) context menu with the event menu.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="set_mouse_ctx"><!-- --></A><H3>
+set_mouse_ctx</H3>
+<PRE>
+function <B>set_mouse_ctx</B>(evt)</PRE>
+<DL>
+<DD>When the user moves the mouse over the graphical representation of an invocation, event, or entity/identity
+the corresponding SVG element will fire an 'onmouseover' event that is captured using this routine. It is used
+for one of the following actions:
+
+<ul>
+<li> Show a tooltip panel using <a href='#showTooltip'>showTooltip</a></li>
+<li> Set the color context menu using <a href='#set_color_menu'>set_color_menu</a></li>
+<li> The entity/identity line to show up in bold. </li>
+</ul>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="set_step_size"><!-- --></A><H3>
+set_step_size</H3>
+<PRE>
+function <B>set_step_size</B>(p)</PRE>
+<DL>
+<DD>Routine is used to set the page control step size. In the x direction the step size is defined as
+a percentage of the view panel width, in the y direction as a percentage of the number of events that fit on
+the visible view panel window area.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>p</CODE> - Percentage value set by the user.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="show"><!-- --></A><H3>
+show</H3>
+<PRE>
+function <B>show</B>(node, children)</PRE>
+<DL>
+<DD>Callback routine called from the entity/identity tree when the user modifies the tree view to visualize a
+tree fragment.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>children</CODE> - All children underneath the specified node for which the visual flag must be set to true as well.
+     <p>
+   
+     <DD><CODE>node</CODE> - Branch id of the tree node the user operates upon.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="showEventTree"><!-- --></A><H3>
+showEventTree</H3>
+<PRE>
+function <B>showEventTree</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="showEvents"><!-- --></A><H3>
+showEvents</H3>
+<PRE>
+function <B>showEvents</B>()</PRE>
+<DL>
+<DD>Callback routine called when the user acts on the event context menu to restore the default view
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="showOperation"><!-- --></A><H3>
+showOperation</H3>
+<PRE>
+function <B>showOperation</B>(menu)</PRE>
+<DL>
+<DD>Callback routine called from the control_tabs HTML page when the user operates on the 'Remove Operation Filter:' menu.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>menu</CODE> - Menu element.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="showTooltip"><!-- --></A><H3>
+showTooltip</H3>
+<PRE>
+function <B>showTooltip</B>()</PRE>
+<DL>
+<DD>called by the <a href='#set_mouse_ctx'>set_mouse_ctx</a> routine when the user is hoovering with the mouse over a
+graphical representation of an event or entity/identity.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="south"><!-- --></A><H3>
+south</H3>
+<PRE>
+function <B>south</B>()</PRE>
+<DL>
+<DD>Called when the user clicks the page control 'south' button.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="timer"><!-- --></A><H3>
+timer</H3>
+<PRE>
+function <B>timer</B>()</PRE>
+<DL>
+<DD>500 ms timer used to update the status line when retrieving information from the server.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="toggleControlView"><!-- --></A><H3>
+toggleControlView</H3>
+<PRE>
+function <B>toggleControlView</B>(evt)</PRE>
+<DL>
+<DD>When the user clicks with the mouse on the graphical representation of an invocation, event, or entity/identity
+the corresponding SVG element will fire an 'onclick' event that is captured using this routine. Depending on the
+element clicked, the following happens:
+
+<ul>
+<li> <b>Invocation</b> - The HTML control panel will display a 'Operation Control' tab that gives the user
+control about the operations to filter.</li>
+<li> <b>Event</b> - The HTML control panel will display a 'Event Parameters' tab showing the event parameters.</li>
+<li> <b>Entity/Identity</b> - The HTML control panel will display the 'Entity Control' tab containing the entity/identity
+hierarchy tree.</li>
+</ul>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="updateControlView"><!-- --></A><H3>
+updateControlView</H3>
+<PRE>
+function <B>updateControlView</B>(id, tooltip, img, value)</PRE>
+<DL>
+<DD>This routine is called by the <a href='#operationComplete'>operationComplete</a> routine to update the entity/identity
+hierarchy tree after retrieving entities from the server.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>id</CODE> - Branch id of the parent node this new node must be appended to as a child.
+     <p>
+   
+     <DD><CODE>value</CODE> - Entity/Identity name.
+     <p>
+   
+     <DD><CODE>img</CODE> - Node tree images.
+     <p>
+   
+     <DD><CODE>tooltip</CODE> - Tooltip to show when the user moves with the mouse over this node.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="updateFilterMenus"><!-- --></A><H3>
+updateFilterMenus</H3>
+<PRE>
+function <B>updateFilterMenus</B>()</PRE>
+<DL>
+<DD>
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="updateSVGDocument"><!-- --></A><H3>
+updateSVGDocument</H3>
+<PRE>
+function <B>updateSVGDocument</B>()</PRE>
+<DL>
+<DD>Updates the SVG document to reflect all the changes.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="updateStatus"><!-- --></A><H3>
+updateStatus</H3>
+<PRE>
+function <B>updateStatus</B>(window, id)</PRE>
+<DL>
+<DD>Called when the user hoovers with the mouse over the text of an entity/identity tree node.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>id</CODE> - Branch id of the tree node.
+     <p>
+   
+     <DD><CODE>window</CODE> - Web browser window.
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="west"><!-- --></A><H3>
+west</H3>
+<PRE>
+function <B>west</B>()</PRE>
+<DL>
+<DD>Called when the user clicks the page control 'west' button.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="scroll"><!-- --></A><H3>
+scroll</H3>
+<PRE>
+&lt;static&gt; function <B>scroll</B>()</PRE>
+<DL>
+<DD>Static event listener (Adobe SVGScroll events) callback routine that handles panning events the user can issue by
+holding the alt key and clicking and dragging with the mouse.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="yposIndexOrder"><!-- --></A><H3>
+yposIndexOrder</H3>
+<PRE>
+&lt;static&gt; function <B>yposIndexOrder</B>(a,b)</PRE>
+<DL>
+<DD>Order function used by the visible events array to sort events with the yposIndex parameter as sort criteria.
+<P>
+
+<DD>   
+<DL><DT><B>Parameters:</B>
+   
+     <DD><CODE>a</CODE> - First event of the two events to sort
+     <p>
+   
+     <DD><CODE>b</CODE> - Second event of the two events to sort
+     <p>
+   
+
+</DL>
+
+</DD>
+
+
+
+
+</DL>
+<HR>
+
+<A NAME="zoom"><!-- --></A><H3>
+zoom</H3>
+<PRE>
+&lt;static&gt; function <B>zoom</B>()</PRE>
+<DL>
+<DD>Static event listener (Adobe SVGZoom events) callback routine that handles zoom in/out events the user can issue
+using the default Adobe context menu.
+<P>
+
+
+
+
+</DL>
+<HR>
+
+
+
+<!-- ============ END METHOD DETAIL ========== -->
+
+<!-- ========= END OF CLASS DATA ========= -->
+
+<!-- ========== START OF NAVBAR ========== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN=3 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3">
+  <TR ALIGN="center" VALIGN="top">
+  <!-- 
+  This is navbar functionality that is not yet handled
+ --> 
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"></TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <!--A HREF="overview-tree.html"--><FONT CLASS="NavBarFont1">Tree</FONT><!--/A-->&nbsp;</TD>
+  <!--TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"-->    <!--A HREF="deprecated-list.html"--><!--FONT CLASS="NavBarFont1">Deprecated</FONT--><!--/A--><!--&nbsp;</TD-->
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="Hashtable.html"><B>PREV CLASS</B></A><!-- 
+   NEXT CLASS 
+-->
+&nbsp;<A HREF="StringBuffer.html"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="index.html" TARGET="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SVGController.html" TARGET="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;
+<SCRIPT>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>
+</NOSCRIPT>
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+
+<!-- =========== END OF NAVBAR =========== -->
+
+<HR>
+
+</BODY>
+</HTML>

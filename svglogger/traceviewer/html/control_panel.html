@@ -1,0 +1,147 @@
+<!--
+###########################################################################
+# COACH: Component Based Open Source Architecture for                     #
+#        Distributed Telecom Applications                                 #
+# See:   http://www.objectweb.org/                                        #
+#                                                                         #
+# Copyright (C) 2003 Lucent Technologies Nederland BV                     #
+#                    Bell Labs Advanced Technologies - EMEA               #
+#                                                                         #
+# Initial developer(s): Wim Hellenthal                                    #
+#                                                                         #
+# This library is free software; you can redistribute it and/or           #
+# modify it under the terms of the GNU Lesser General Public              #
+# License as published by the Free Software Foundation; either            #
+# version 2.1 of the License, or (at your option) any later version.      #
+#                                                                         #
+# This library is distributed in the hope that it will be useful,         #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of          #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU        #
+# Lesser General Public License for more details.                         #
+#                                                                         #
+# You should have received a copy of the GNU Lesser General Public        #
+# License along with this library; if not, write to the Free Software     #
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA #
+###########################################################################
+-->
+<html>
+	<head>
+		<style>
+			.header1, h1 {color: #ffffff; background: #4682B4; font-weight: bold; font-family: Tahoma, Verdana; font-size: 13px; margin: 0px; padding: 1px;}
+			.header2, h2 {color: #000000; background: #DBEAF5; font-weight: bold; font-family: Tahoma, Verdana; font-size: 12px;}
+			.select      {color: #000000; background: #EAEAEA; font-weight: bold; font-family: Tahoma, Verdana; font-size: 12px;}
+		</style>
+		<script language='JavaScript'>
+			function svg_init(page_ctrl)
+			{
+				top.page_ctrl = page_ctrl;
+			}
+
+			function modify_step_size(selector)
+			{
+				top.view_ctrl.set_step_size ((selector.selectedIndex + 1) * 25);
+			}
+
+			function north ()
+			{
+				top.view_ctrl.north();
+			}
+
+			function south ()
+			{
+				top.view_ctrl.south();
+			}
+
+			function west ()
+			{
+				top.view_ctrl.west();
+			}
+
+			function east ()
+			{
+				top.view_ctrl.east();
+			}
+
+            function acquireLock ()
+            {
+                return top.view_ctrl.acquireLock();
+            }
+
+			function home ()
+			{
+				top.view_ctrl.home();
+			}
+
+			function setVScrollOffset (py)
+			{
+				top.view_ctrl.setVScrollOffset(py);
+			}
+
+			function setHScrollOffset (px)
+			{
+				top.view_ctrl.setHScrollOffset(px);
+			}
+		</script>
+	</head>
+	<body bottommargin='4' topmargin='4' leftmargin='4' rightmargin='4' bgcolor='#EAEAEA'>
+		<table cellspacing='3' cellpadding='0' width='100%' height='100%' border='0' bgcolor='#4682B4'>
+			<tr height='20'>
+				<td>
+					<table cellspacing='4' cellpadding='1' width='100%' height='100%' border='0' bgcolor='#FFFFFF'>
+						<tr>
+							<td align='left'><img base='javascript:top.path' src="images/lucent.gif"  width='125' border="0"></td>
+						</tr>
+						<tr>
+							<td align='right'><img base='javascript:top.path' src="images/fokusLogo2.gif" width='40' border="0"></td>
+						</tr>
+						<tr>
+							<td align='right'><img base='javascript:top.path' src="images/TT-Logo.gif" width='125' border="0"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height='120'>
+				<td>
+					<table cellspacing='4' cellpadding='1' width='100%' height='100%' border='1' bgcolor='#EAEAEA'>
+						<tr class='header1'>
+							<td height='22'align='center'>Page Control</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellspacing='0' cellpadding='0' width='100%' height='100%' border='0'>
+									<tr height='115'>
+										<td align='center'><embed id='control_panel' width='100%' height='100%' type='image/svg+xml' base='javascript:top.path' src='svg/control_panel.svg'></td>
+									</tr>
+									<tr height ='30'>
+										<td align='center'>
+											<p class='select'>step size (%)
+											<select id='step_size_ctrl' name='25' onchange='modify_step_size(this)'>
+											<option>25
+											<option>50
+											<option>75
+											<option>100
+											</select> </p>
+										</td>
+									</tr>
+
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table cellspacing='4' cellpadding='1' width='100%' height='100%' border='1' bgcolor='#EAEAEA'>
+						<tr class='header1'>
+							<td id='control_caption' height='22'align='center'></td>
+						</tr>
+						<tr>
+							<td><iframe id='control_pages' frameborder='0' scrolling='auto' width='100%' height='100%' src='./control_tabs.html'> </iframe> </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		<table>
+	</body>
+</html>	

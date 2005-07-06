@@ -1,0 +1,109 @@
+<?AdobeSVGViewer save="snapshot"?>
+<svg width='100%' height='100%' onload='onloadHandler()' xmlns='http://www.w3.org/2000/svg'>
+	<description>
+        ###########################################################################
+        # COACH: Component Based Open Source Architecture for                     #
+        #        Distributed Telecom Applications                                 #
+        # See:   http://www.objectweb.org/                                        #
+        #                                                                         #
+        # Copyright (C) 2003 Lucent Technologies Nederland BV                     #
+        #                    Bell Labs Advanced Technologies - EMEA               #
+        #                                                                         #
+        # Initial developer(s): Wim Hellenthal                                    #
+        #                                                                         #
+        # This library is free software; you can redistribute it and/or           #
+        # modify it under the terms of the GNU Lesser General Public              #
+        # License as published by the Free Software Foundation; either            #
+        # version 2.1 of the License, or (at your option) any later version.      #
+        #                                                                         #
+        # This library is distributed in the hope that it will be useful,         #
+        # but WITHOUT ANY WARRANTY; without even the implied warranty of          #
+        # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU        #
+        # Lesser General Public License for more details.                         #
+        #                                                                         #
+        # You should have received a copy of the GNU Lesser General Public        #
+        # License along with this library; if not, write to the Free Software     #
+        # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA #
+        ###########################################################################
+	</description>
+	<style type='text/css'>
+		.stxt{fill:#660066; font-size:8pt;  font:modern; text-anchor:middle;}
+		.txt {fill:#0000FF; font-size:10pt; font:modern; text-anchor:middle;}
+		.tt  {fill:#000000; font-size:10pt; font:modern;}
+	</style>
+	<script language='JavaScript' xlink:href='../jscript/browser.js'></script>
+	<script language='JavaScript' xlink:href='../jscript/hashtable.js'></script>
+	<script language='JavaScript' xlink:href='../jscript/strbuffer.js'></script>
+	<script language='JavaScript' xlink:href='../jscript/viewcntl.js'></script>
+	<script language='JavaScript' xlink:href='../jscript/xml2tree.js'></script>
+	<script type='text/javascript'><![CDATA[
+		var controller;
+
+		function Dummy(){}
+		Dummy.prototype.set_mouse_ctx 		= function(evt){}
+		Dummy.prototype.clear_mouse_ctx		= function(evt){}
+		Dummy.prototype.toggleControlView 	= function(evt){}
+
+		function onloadHandler ()
+		{
+			try
+			{
+				controller = new SVGController();
+			}
+			catch (e)
+			{
+				/* This is a SVG snapshot file - using dummy functions for event handling */
+
+				controller = new Dummy();
+
+				return;
+			}
+
+			if ( parent )
+				parent.svg_init (controller)
+		}
+	]]></script>
+	<defs>
+		<clipPath id='clip'>
+			<rect x='0' y='20' width='10000%' height='400%'/>
+		</clipPath>
+	</defs>
+
+	<g id='entity group'>
+	</g>
+	<g id='operation group'>
+	</g>
+	<g id='event group' style='clip-path:url(#clip)'>
+	</g>
+	<defs>
+		<menu id='color_menu' xmlns='http://foo' onload='GetPosition(evt)'>
+			<menu>
+				<header>Set Trail Color</header>
+				<item onactivate="controller.setTrailColor('#0000FF')">Blue&#009;#0000FF</item>
+				<item onactivate="controller.setTrailColor('#8A2BE2')">BlueViolet&#009;#8A2BE2</item>
+				<item onactivate="controller.setTrailColor('#A52A2A')">Brown&#009;#A52A2A</item>
+				<item onactivate="controller.setTrailColor('#FF7F50')">Coral&#009;#FF7F50</item>
+				<item onactivate="controller.setTrailColor('#00FFFF')">Cyan&#009;#00FFFF</item>
+				<item onactivate="controller.setTrailColor('#008B8B')">DarkCyan&#009;#008B8B</item>
+				<item onactivate="controller.setTrailColor('#006400')">DarkGreen&#009;#006400</item>
+				<item onactivate="controller.setTrailColor('#8B008B')">DarkMagenta&#009;#8B008B</item>
+				<item onactivate="controller.setTrailColor('#FF1493')">DeepPink&#009;#FF1493</item>
+				<item onactivate="controller.setTrailColor('#808080')">Gray&#009;#808080</item>
+				<item onactivate="controller.setTrailColor('#008000')">Green&#009;#008000</item>
+				<item onactivate="controller.setTrailColor('#FF00FF')">Magenta&#009;#FF00FF</item>
+				<item onactivate="controller.setTrailColor('#FFA500')">Orange&#009;#FFA500</item>
+				<item onactivate="controller.setTrailColor('#FFC0CB')">Pink&#009;#FFC0CB</item>
+				<item onactivate="controller.setTrailColor('#FF0000')">Red&#009;#FF0000</item>
+				<item onactivate="controller.setTrailColor('#87CEEB')">SkyBlue&#009;#87CEEB</item>
+				<item onactivate="controller.setTrailColor('#EE82EE')">Violet&#009;#EE82EE</item>
+				<item onactivate="controller.setTrailColor('#FFFF00')">Yellow&#009;#FFFF00</item>
+			</menu>
+			<separator/>
+			<item onactivate='controller.clearTrailColor()'>Clear Trail Color</item>
+		</menu>
+		<menu id='event_menu' xmlns='http://foo' onload='GetPosition(evt)'>
+			<item onactivate="controller.hideEvents()">Hide Previous Events</item>
+			<item onactivate='controller.showEvents()'>Show Previous Events</item>
+		</menu>
+	</defs>
+</svg>

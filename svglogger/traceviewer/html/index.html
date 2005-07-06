@@ -1,0 +1,115 @@
+<!--
+###########################################################################
+# COACH: Component Based Open Source Architecture for                     #
+#        Distributed Telecom Applications                                 #
+# See:   http://www.objectweb.org/                                        #
+#                                                                         #
+# Copyright (C) 2003 Lucent Technologies Nederland BV                     #
+#                    Bell Labs Advanced Technologies - EMEA               #
+#                                                                         #
+# Initial developer(s): Wim Hellenthal                                    #
+#                                                                         #
+# This library is free software; you can redistribute it and/or           #
+# modify it under the terms of the GNU Lesser General Public              #
+# License as published by the Free Software Foundation; either            #
+# version 2.1 of the License, or (at your option) any later version.      #
+#                                                                         #
+# This library is distributed in the hope that it will be useful,         #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of          #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU        #
+# Lesser General Public License for more details.                         #
+#                                                                         #
+# You should have received a copy of the GNU Lesser General Public        #
+# License along with this library; if not, write to the Free Software     #
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA #
+###########################################################################
+-->
+<html>
+	<head>
+		<title>Trace Viewer</title>
+		<script language='JavaScript' src='/coach/tracing/jscript/browser.js'></script>
+		<script language='JavaScript' src='/coach/tracing/jscript/cookie.js'></script>
+		<script language="JavaScript" src="/coach/tracing/jscript/svgcheck.js"></script>
+		<script language="VBScript"   src="/coach/tracing/jscript/svgcheck.vbs"></script>
+		<script language='JavaScript'>
+
+			<!-- browser must be IExplorer -->
+
+			var agent = navigator.userAgent.toLowerCase();
+			var index = agent.indexOf("msie");
+
+			if ( index == -1 )
+				location = "/coach/tracing/browser.html"
+
+			<!-- check version - must be 5.5 or higher -->
+
+			var major = parseInt(agent.substring (index + 5, index + 6));
+			var minor = parseInt(agent.substring (index + 7, index + 8));
+
+			if ( (major < 5) || ((major == 5) && (minor < 5)) )
+				location = "/coach/tracing/browser.html"
+
+			<!-- if not installed - get the Adobe SVG ActiveX control -->
+
+			checkAndGetSVGViewer();
+
+			var timer_id 	= null;
+			var path	 	= '/coach/tracing';
+			var server	 	= path + '/tracingserver';
+			var cookie	 	= ['25','1','0','0'];
+
+			function loadHandler ()
+			{
+				<!-- initialize controls -->
+
+				if ( !self.view_ctrl )
+				{
+					<!-- It seems that the view_panel.html onload handler can be called before the SVG doc is completely loaded - wait a while and retry -->
+
+					if ( timer_id )
+						clearTimeout (timer_id);
+
+					timer_id = setTimeout ("loadHandler()", 100);
+
+					return;
+				}
+
+				if ( timer_id )
+					clearTimeout (timer_id);
+
+				var tmp = get_cookie ('properties')
+
+				if (tmp)
+				 	cookie = tmp.split('&');
+
+				self.page_ctrl.interval = 350;
+
+				self.view_ctrl.html_init (self.page_ctrl, cookie, self.frames['control_panel'].document);
+
+				self.frames['control_panel'].frames['control_pages'].init(server, get_element('control_caption', self.frames['control_panel'].document), self.frames['control_panel'].frames['control_pages'].document);
+			}
+
+			function unloadHandler()
+			{
+				<!-- save properties using a cookie with an expiration time of one year -->
+
+				var nextyear = new Date();
+
+				nextyear.setFullYear(nextyear.getFullYear() + 1);
+
+	 			set_cookie ('properties', cookie.join('&'), nextyear);
+
+				<!-- this is needed to avoid huge amounts of memory leaks when refreshing - Why ? -->
+
+				delete self.frames['control_panel'].frames['control_pages'].unit_tree.dom;
+				delete self.frames['control_panel'].frames['control_pages'].event_tree.dom;
+			}
+		</script>
+		<frameset cols='20%,*' onload='loadHandler()' onunload='unloadHandler()'>
+			<frame id='control_panel' src='control_panel.html'  scrolling='no' noresize='1' bgcolor='silver'>
+			<frame id='view_panel'    src='view_panel.html'     scrolling='no'>
+		</frameset>
+	</head>
+	<body>
+	</body>
+</html>
